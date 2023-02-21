@@ -48,7 +48,7 @@ int get_risk_level(char gender, int age)
         }
     }
 
-    if ((age < 20) or (age > 79))
+    if ((age < 20) || (age > 79))
         cout << "*** Note: This test does not work well for people of age under 20 or over 79" << endl;
     cout.precision(4);
     cout << "*** Your " << TEST_NAME << " is " << value_BFP << "%" << endl;
