@@ -24,8 +24,8 @@ PointSet::PointSet(const Point points[], int numPoints)
   {
     this->points[i] = points[i];
   }
-  this->numPoints=numPoints;
-  this->capacity=numPoints;
+  this->numPoints = numPoints;
+  this->capacity = numPoints;
 }
 
 PointSet::PointSet(const PointSet &s)
@@ -34,38 +34,41 @@ PointSet::PointSet(const PointSet &s)
   cout << "Initialized by PointSet's copy constructor" << endl;
 
   // TODO #3: add your code here
-  points=new Point [s.numPoints];
-  for (int i=0;i<s.numPoints;i++){
-    points[i]=s.points[i];
+  points = new Point[s.numPoints];
+  for (int i = 0; i < s.numPoints; i++)
+  {
+    points[i] = s.points[i];
   }
-  capacity=s.capacity;
-  numPoints=s.numPoints;
+  capacity = s.capacity;
+  numPoints = s.numPoints;
 }
 
 PointSet::~PointSet()
 {
   // TODO #4: add your code here
-  delete [] points;
-  numPoints=0;
-  capacity=0;
+  delete[] points;
+  numPoints = 0;
+  capacity = 0;
 }
 
 void PointSet::addPoint(const Point &p)
 {
   // TODO #5: add your code here
-  if (numPoints==capacity){
-    cout<<"Insufficient array space"<<endl;
+  if (numPoints == capacity)
+  {
+    cout << "Insufficient array space" << endl;
     return;
   }
-  points[numPoints]=p;
+  points[numPoints] = p;
   numPoints++;
 }
 
 void PointSet::removeLastPoint()
 {
   // TODO #6: add your code here
-  if (numPoints==0){
-    cout<<"No points"<<endl;
+  if (numPoints == 0)
+  {
+    cout << "No points" << endl;
     return;
   }
   numPoints--;
@@ -75,14 +78,17 @@ void PointSet::removeLastPoint()
 bool PointSet::isCollinear() const
 {
   // TODO #7: add your code here
-  if (numPoints<=2){
+  if (numPoints <= 2)
+  {
     return true;
   }
-  int check=0;
-  for (int j=0;j<numPoints-2;j++){
-    check+=isCollinear_3points(points[j],points[j+1],points[j+2]);
+  int check = 0;
+  for (int j = 0; j < numPoints - 2; j++)
+  {
+    check += isCollinear_3points(points[j], points[j + 1], points[j + 2]);
   }
-  if (check==numPoints-2){
+  if (check == numPoints - 2)
+  {
     return true;
   }
   return false;
@@ -92,8 +98,9 @@ bool PointSet::isCollinear() const
 bool PointSet::isCollinear_3points(const Point p1, const Point p2, const Point p3) const
 {
   // TODO #8: add your code here
-  double area = 0.5*abs(p1.getX()*(p2.getY()-p3.getY())+p2.getX()*(p3.getY()-p1.getY())+p3.getX()*(p1.getY()-p2.getY()));
-  if (area==0){
+  double area = 0.5 * abs(p1.getX() * (p2.getY() - p3.getY()) + p2.getX() * (p3.getY() - p1.getY()) + p3.getX() * (p1.getY() - p2.getY()));
+  if (area == 0)
+  {
     return true;
   }
   return false;
