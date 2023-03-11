@@ -4,11 +4,10 @@
 
 // list is a static-allocated data member of Swiss, so you should not use new
 // or delete for this data member
-Swiss::Swiss(const int numRounds, const PlayerList &list)
+Swiss::Swiss(const int numRounds, const PlayerList &list): list(list)
 {
     this->numRounds = numRounds;
     curRound = 0;
-    this->list = list;
     this->list.sort();
 }
 
