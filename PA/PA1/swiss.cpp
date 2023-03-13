@@ -31,7 +31,7 @@ void Swiss::play()
             {
                 required_list[k].sort();
 
-                int mid_index = required_list[k].getNumPlayers() / 2;
+                int mid_index =required_list[k].getNumPlayers()/ 2;
                 for (int l = 0; l < mid_index; l++)
                 {
                     Match match = Match(required_list[k].getPlayer(l), required_list[k].getPlayer(l + mid_index));
