@@ -19,8 +19,6 @@ void Swiss::play()
     {
         int num_scores = 2 * curRound - 1;
         PlayerList *required_list = new PlayerList[num_scores];
-        int i = 0;
-
         for (int j = 0; j < list.getNumPlayers(); j++)
         {
             required_list[num_scores - 1 - (list.getPlayer(j))->getScore()].addPlayer(list.getPlayer(j));
