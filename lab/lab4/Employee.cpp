@@ -15,7 +15,7 @@ Employee::Employee(const char *name, double base_salary)
 // TODO: Complete copy constructor
 Employee::Employee(const Employee &employee)
 {
-    this->name = new char(strlen(employee.name) + 1);
+    this->name = new char[strlen(employee.name) + 1];
     strcpy(this->name, employee.name);
     this->base_salary = employee.base_salary;
 }
