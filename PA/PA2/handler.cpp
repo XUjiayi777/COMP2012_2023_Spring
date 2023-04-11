@@ -14,18 +14,7 @@ void HandlerModule::print() const
 
 void HandlerModule::trainData(const string &question, const string &answer)
 {
-    string question1=question, answer1=answer;
-    if (languageFilter != nullptr)
-    {
-        question1 = languageFilter->translatePreData(question);
-        answer1 = languageFilter->translatePreData(answer);
-    }
-    if (toneFilter != nullptr)
-    {
-        question1 = toneFilter->translatePreData(question1);
-        answer1 = languageFilter->translatePreData(answer1);
-    }
-    data.insert(question1, answer1);
+    data.insert(question, answer);
 }
 string HandlerModule::answer(const string &question) const
 {
