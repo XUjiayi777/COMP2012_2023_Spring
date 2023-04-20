@@ -13,7 +13,7 @@ const int VigenereCipher::alphabetSize = 26;
 string VigenereCipher::encrypt(string plaintextMsg) const
 {
     string encrypted_message = plaintextMsg;
-    string key1;
+    string key1 = key;
     int index = 0; // keep track of which character in the key is currently being used
     for (int i = 0; i < key.size(); i++)
     {
@@ -69,7 +69,7 @@ string VigenereCipher::encrypt(string plaintextMsg) const
 string VigenereCipher::decrypt(string ciphertextMsg) const
 {
     string decrypted_message = ciphertextMsg;
-    string key1;
+    string key1 = key;
     int index = 0; // keep track of which character in the key is currently being used
     for (int i = 0; i < key.size(); i++)
     {
@@ -125,7 +125,7 @@ string VigenereCipher::decrypt(string ciphertextMsg) const
 // according to the given algorithm.
 string VigenereCipher::generateRandomKey(int length)
 {
-    string generated_key;
+    string generated_key="";
     for (int i = 0; i < length; i++)
     {
         int number = _rand() % alphabetSize;
