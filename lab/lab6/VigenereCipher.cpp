@@ -1,8 +1,6 @@
 #include "VigenereCipher.h"
 #include "Utility.h"
 #include <cctype>
-#include <iostream>
-using namespace std;
 
 // TODO #1
 // Initialize the static data member alphabetSize here
