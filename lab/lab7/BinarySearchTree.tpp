@@ -1,5 +1,3 @@
-#include <iostream>
-using namespace std;
 template <typename T1, typename T2>
 BinarySearchTree<T1, T2>::BinarySearchTree(const string &name, const T1 &x, const T2 &y) : name(name), score{x, y}, left_sub_tree(nullptr), right_sub_tree(nullptr) {}
 
