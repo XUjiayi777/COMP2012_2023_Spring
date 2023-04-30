@@ -43,14 +43,13 @@ BoardOptimalMove BoardTree::getOptimalMove(const unsigned int depth)
     int estimatedScore = 0;
     if (root->board.getCurPlayer() == X)
     {
-        estimatedScore = -WIN_SCORE;
+        estimatedScore = -WIN_SCORE-1;
     }
     else if (root->board.getCurPlayer() == O)
     {
-        estimatedScore = WIN_SCORE;
+        estimatedScore = WIN_SCORE+1;
     }
     BoardOptimalMove bestMove;
-    int first = 0;
     for (int i = 0; i < BOARD_SIZE; i++)
     {
         for (int j = 0; j < BOARD_SIZE; j++)
@@ -73,28 +72,16 @@ BoardOptimalMove BoardTree::getOptimalMove(const unsigned int depth)
             {
                 if (childMove.score > estimatedScore)
                 {
-                    first = 0;
                     estimatedScore = childMove.score;
                     bestMove = BoardOptimalMove(estimatedScore, coordinate);
-                }
-                if (childMove.score = estimatedScore && first == 0)
-                {
-                    bestMove = BoardOptimalMove(estimatedScore, coordinate);
-                    first++;
                 }
             }
             else
             {
                 if (childMove.score < estimatedScore)
                 {
-                    first = 0;
                     estimatedScore = childMove.score;
                     bestMove = BoardOptimalMove(estimatedScore, coordinate);
-                }
-                if (childMove.score = estimatedScore && first == 0)
-                {
-                    bestMove = BoardOptimalMove(estimatedScore, coordinate);
-                    first++;
                 }
             }
         }
