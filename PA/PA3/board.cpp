@@ -114,22 +114,22 @@ int Board::getBoardScore() const
         }
         if (dia_count == BOARD_SIZE - 1)
         {
-            if (cells[p][p] == X)
+            if (cells[0][0] == X)
             {
                 return WIN_SCORE;
             }
-            else if (cells[p][p] == O)
+            else if (cells[0][0] == O)
             {
                 return -WIN_SCORE;
             }
         }
-        else if (dia_count_1 == BOARD_SIZE - 1)
+        if (dia_count_1 == BOARD_SIZE - 1)
         {
-            if (cells[p][BOARD_SIZE - 1 - p] == X)
+            if (cells[BOARD_SIZE - 1][0] == X)
             {
                 return WIN_SCORE;
             }
-            else if (cells[p][BOARD_SIZE - 1 - p] == O)
+            else if (cells[BOARD_SIZE - 1][0] == O)
             {
                 return -WIN_SCORE;
             }
@@ -167,7 +167,8 @@ bool Board::play(const BoardCoordinate &coords)
         {
             cells[coords.row][coords.col] = curPlayer;
         }
-        else{
+        else
+        {
             return false;
         }
         if (curPlayer == X)

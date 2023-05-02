@@ -1,6 +1,5 @@
 #include "boardtree.h"
-#include <iostream>
-using namespace std; // remove before assignment
+
 
 BoardTree::BoardTree(const Board &board)
 {
@@ -43,11 +42,11 @@ BoardOptimalMove BoardTree::getOptimalMove(const unsigned int depth)
     int estimatedScore = 0;
     if (root->board.getCurPlayer() == X)
     {
-        estimatedScore = -WIN_SCORE-1;
+        estimatedScore = -WIN_SCORE - 1;
     }
     else if (root->board.getCurPlayer() == O)
     {
-        estimatedScore = WIN_SCORE+1;
+        estimatedScore = WIN_SCORE + 1;
     }
     BoardOptimalMove bestMove;
     for (int i = 0; i < BOARD_SIZE; i++)
@@ -64,10 +63,6 @@ BoardOptimalMove BoardTree::getOptimalMove(const unsigned int depth)
             {
                 continue;
             }
-            // cout << "i" << i << "j" << j << endl;
-            // cout << childMove.score << endl;
-            // cout << estimatedScore << endl;
-            // cout << root->board.getCurPlayer() << endl;
             if (root->board.getCurPlayer() == X)
             {
                 if (childMove.score > estimatedScore)
