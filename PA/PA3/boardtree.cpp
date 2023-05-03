@@ -132,31 +132,31 @@ BoardOptimalMove BoardTree::getOptimalMoveAlphaBeta(const unsigned int depth, in
 
             if (root->board.getCurPlayer() == X)
             {
+                if (childMove.score > estimatedScore)
+                {
+                    estimatedScore = childMove.score;
+                    bestMove = BoardOptimalMove(estimatedScore, coordinate);
+                }
                 if (estimatedScore > beta)
                 {
                     flag = 1;
                     break;
                 }
                 alpha = (estimatedScore > alpha) ? estimatedScore : alpha;
-                if (childMove.score > estimatedScore)
+            }
+            else
+            {
+                if (childMove.score < estimatedScore)
                 {
                     estimatedScore = childMove.score;
                     bestMove = BoardOptimalMove(estimatedScore, coordinate);
                 }
-            }
-            else
-            {
                 if (estimatedScore < alpha)
                 {
                     flag = 1;
                     break;
                 }
                 beta = (estimatedScore < beta) ? estimatedScore : beta;
-                if (childMove.score < estimatedScore)
-                {
-                    estimatedScore = childMove.score;
-                    bestMove = BoardOptimalMove(estimatedScore, coordinate);
-                }
             }
         }
         if (flag == 1)
