@@ -134,7 +134,7 @@ int Board::getBoardScore() const
                 return -WIN_SCORE;
             }
         }
-    }
+    }//check diagonal
 
     // calculate the score based on the current cells on the board.
     int X_score = 0;
