@@ -89,6 +89,10 @@ unsigned int HashTable<K, V>::insert(const K &key, const V &value)
       table[j].status = ACTIVE;
       return i;
     }
+    else if (table[j].status == ACTIVE && table[j].key == key){
+      table[j].value = value;
+      return i;
+    }
     // TODO #4: --- END ---
 
     j = (index + offset(i, key)) % table_size; // Compute the next probe location
