@@ -127,7 +127,6 @@ unsigned int HashTable<K, V>::remove(const K &key)
     }
     if (table[j].status == ACTIVE && table[j].key == key)
     {
-      table[j].value = "";
       table[j].status = DELETE;
       return i;
     }
@@ -164,7 +163,13 @@ unsigned int HashTable<K, V>::find(const K &key, V *&v)
     // TODO #6: --- BEGIN ---
     if (table[j].key == key)
     {
-      v = &(table[j].value);
+      if (table[j].status == ACTIVE)
+      {
+        v = &(table[j].value);
+      }
+      else if (table[j].status == DELETE){
+        v = nullptr;
+      }
       return i;
     }
     // TODO #6: --- END ---
